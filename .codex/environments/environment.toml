@@ -19,8 +19,10 @@ if command -v mise >/dev/null 2>&1; then
 fi
 if [[ -f scripts/prepare-worktree.sh ]]; then
   bash scripts/prepare-worktree.sh
-else
+elif [[ -f package.json ]]; then
   npm install
+else
+  echo "[codex] no package.json or scripts/prepare-worktree.sh found; skipping npm install"
 fi
 '''
 
@@ -43,8 +45,10 @@ if command -v mise >/dev/null 2>&1; then
 fi
 if [[ -f scripts/prepare-worktree.sh ]]; then
   bash scripts/prepare-worktree.sh
-else
+elif [[ -f package.json ]]; then
   npm install
+else
+  echo "[codex] no package.json or scripts/prepare-worktree.sh found; skipping npm install"
 fi
 '''
 
